@@ -17,40 +17,72 @@ states <- read_csv("data/states.csv")
 ```
 
 ### Exercise 1
-``` {r hotels}
+``` {r excercise1}
+?dennys
 nrow(dennys)
 ncol(dennys)
-
+#Each row represents a dennys location. The variables are the address, city, state, zip, longitude and lattitude. 
 ```
 
-Remove this text, and add your answer for Exercise 1 here.
-Add code chunks as needed.
-Don't forget to label your code chunk.
-Do not use spaces in code chunk labels.
-
 ### Exercise 2
-
-Remove this text, and add your answer for Exercise 2 here.
-Add code chunks as needed.
-Don't forget to label your code chunk.
-Do not use spaces in code chunk labels.
-
-### Exercise 3
-
+```{r excercise2}
+nrow(laquinta)
+ncol(laquinta)
+??laquinta
+#Its 909 x 6. The rows represent the motel, and the variables are the address, city, state, zip, longitude, and lattitude. 
+```
 ...
+### Exercise 3
+```{r excercise3}
+#there are dennys outside of the US - canada, puerto rico, UK. Same thing with laquinta - they are in canada, mexico, turkey, etc. 
+```
 
 ### Exercise 4
-
+```{r exercise4}
+#I would look at longitude and latitude and do a filter so that we isolate to just the rectangle encompassing all of the US minus Hawaii and Alaska and then I'd probably manually add in the alaska / hawaii because how many could there really be? 
+```
 ...
 
 ### Exercise 5
+```{r excercise5}
+#whats the deal with dn? ??dn reveals nothing
+library(dsbox)
+data()
+#I don't see dn anywhere - is it possible that I am using a different version of dsbox that calls dn something else? 
+dennys %>%
+  filter(!(state %in% states$abbreviation))
+#it looks like there are no dennys outside of the US in the data file? Since when I do this, I have rows of data:
 
+```
 ...
 
 ### Exercise 6
+```{r exercise6}
+dn <- dennys %>%
+    mutate(country="United States")
+
+```
 
 ...
+### Exercise 7
+```{r exercise7}
+internationallaquinta <- laquinta %>%
+  filter(!(state %in% states$abbreviation))
+#there are 14 laquintas outside of the US 
+#they belong to the following countries: Mexico x 10, colombia, Canada x2, Honduras. Abbreviations are AG, QR, CH, NL, ANT, ON, VE, PU, SL, FM, and BC.  
+```
 
- 
-Add exercise headings as needed.
+...
+### Exercise 8
+```{ r exercise8}
+newlaquinta <- laquinta %>%
+  mutate(country = case_when(
+  state %in% state.abb ~ "United States",
+  state %in% c("ON", "BC") ~ "Canada",
+  state == "ANT" ~ "Colombia",
+  state %in% c("AG", "QR", "CH", "NL", "PU","SL", "FM") ~ "Mexico",
+  state == "FM"~"Honduras"
+  ))
+```
+
 
