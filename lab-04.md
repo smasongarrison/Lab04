@@ -16,6 +16,18 @@ states <- read_csv("data/states.csv")
 
 ### Exercise 1
 
+``` r
+nrow(dennys)
+```
+
+    ## [1] 1643
+
+``` r
+ncol(dennys)
+```
+
+    ## [1] 6
+
 Remove this text, and add your answer for Exercise 1 here. Add code
 chunks as needed. Don’t forget to label your code chunk. Do not use
 spaces in code chunk labels.

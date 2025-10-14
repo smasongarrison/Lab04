@@ -17,6 +17,11 @@ states <- read_csv("data/states.csv")
 ```
 
 ### Exercise 1
+``` {r hotels}
+nrow(dennys)
+ncol(dennys)
+
+```
 
 Remove this text, and add your answer for Exercise 1 here.
 Add code chunks as needed.
