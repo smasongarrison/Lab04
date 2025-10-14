@@ -113,3 +113,16 @@ ggplot(dn_lq, mapping = aes(
 )) +
   geom_point()
 ```
+
+
+###Exercise 11
+```{r exercise11}
+NConly <- dn_lq %>%
+  filter(state == "NC")
+ggplot(NConly, mapping = aes(
+  x = longitude,
+  y = latitude,
+  color = establishment
+)) +
+  geom_point()
+```
