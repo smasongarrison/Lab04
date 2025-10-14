@@ -83,6 +83,33 @@ newlaquinta <- laquinta %>%
   state %in% c("AG", "QR", "CH", "NL", "PU","SL", "FM") ~ "Mexico",
   state == "FM"~"Honduras"
   ))
+  
+lq <- newlaquinta %>%
+  filter(country == "United States")
 ```
 
+...
+### Exercise 9 
 
+```{r exercise9}
+dn %>%
+  count(state) %>%
+  inner_join(states, by = c("state" = "abbreviation"))
+```
+...
+
+###Exercise 10
+```{r exercise10}
+dn <- dn %>%
+  mutate(establishment = "Denny's")
+lq <- lq %>%
+  mutate(establishment = "La Quinta")
+dn_lq <- bind_rows(dn, lq)
+# made the new combined variable successfully 
+ggplot(dn_lq, mapping = aes(
+  x = longitude,
+  y = latitude,
+  color = establishment
+)) +
+  geom_point()
+```
