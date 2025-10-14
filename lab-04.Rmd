@@ -126,3 +126,16 @@ ggplot(NConly, mapping = aes(
 )) +
   geom_point()
 ```
+
+###Exercise 12
+```{r exercise12}
+TXonly <- dn_lq %>%
+  filter(state == "TX")
+ggplot(TXonly, mapping = aes(
+  x = longitude,
+  y = latitude,
+  color = establishment
+)) +
+  geom_point()
+#The joke most certainly holds for texas, but only sort of for NC 
+```
