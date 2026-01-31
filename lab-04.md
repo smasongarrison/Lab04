@@ -52,7 +52,7 @@ ncol(laquinta)
 #Its 909 x 6. The rows represent the motel, and the variables are the address, city, state, zip, longitude, and lattitude. 
 ```
 
-… \### Exercise 3
+### Exercise 3
 
 ``` r
 #there are dennys outside of the US - canada, puerto rico, UK. Same thing with laquinta - they are in canada, mexico, turkey, etc. 
@@ -63,8 +63,6 @@ ncol(laquinta)
 ``` r
 #I would look at longitude and latitude and do a filter so that we isolate to just the rectangle encompassing all of the US minus Hawaii and Alaska and then I'd probably manually add in the alaska / hawaii because how many could there really be? 
 ```
-
-…
 
 ### Exercise 5
 
@@ -85,8 +83,6 @@ dennys %>%
 #it looks like there are no dennys outside of the US in the data file? Since when I do this, I have rows of data:
 ```
 
-…
-
 ### Exercise 6
 
 ``` r
@@ -94,7 +90,7 @@ dn <- dennys %>%
     mutate(country="United States")
 ```
 
-… \### Exercise 7
+### Exercise 7
 
 ``` r
 internationallaquinta <- laquinta %>%
@@ -103,7 +99,7 @@ internationallaquinta <- laquinta %>%
 #they belong to the following countries: Mexico x 10, colombia, Canada x2, Honduras. Abbreviations are AG, QR, CH, NL, ANT, ON, VE, PU, SL, FM, and BC.  
 ```
 
-… \### Exercise 8
+### Exercise 8
 
 ``` r
 newlaquinta <- laquinta %>%
@@ -119,32 +115,33 @@ lq <- newlaquinta %>%
   filter(country == "United States")
 ```
 
-… \### Exercise 9
+### Exercise 9
+
+California and Texas have the most, at 403 and 200, respectively.
 
 ``` r
 dn %>%
   count(state) %>%
-  inner_join(states, by = c("state" = "abbreviation"))
+  inner_join(states, by = c("state" = "abbreviation")) %>%
+  arrange(desc(n))
 ```
 
     ## # A tibble: 51 × 4
-    ##    state     n name                     area
-    ##    <chr> <int> <chr>                   <dbl>
-    ##  1 AK        3 Alaska               665384. 
-    ##  2 AL        7 Alabama               52420. 
-    ##  3 AR        9 Arkansas              53179. 
-    ##  4 AZ       83 Arizona              113990. 
-    ##  5 CA      403 California           163695. 
-    ##  6 CO       29 Colorado             104094. 
-    ##  7 CT       12 Connecticut            5543. 
-    ##  8 DC        2 District of Columbia     68.3
-    ##  9 DE        1 Delaware               2489. 
-    ## 10 FL      140 Florida               65758. 
+    ##    state     n name            area
+    ##    <chr> <int> <chr>          <dbl>
+    ##  1 CA      403 California   163695.
+    ##  2 TX      200 Texas        268596.
+    ##  3 FL      140 Florida       65758.
+    ##  4 AZ       83 Arizona      113990.
+    ##  5 IL       56 Illinois      57914.
+    ##  6 NY       56 New York      54555.
+    ##  7 WA       49 Washington    71298.
+    ##  8 OH       44 Ohio          44826.
+    ##  9 MO       42 Missouri      69707.
+    ## 10 PA       40 Pennsylvania  46054.
     ## # ℹ 41 more rows
 
-…
-
-\###Exercise 10
+### Exercise 10
 
 ``` r
 dn <- dn %>%
@@ -163,7 +160,7 @@ ggplot(dn_lq, mapping = aes(
 
 ![](lab-04_files/figure-gfm/exercise10-1.png)<!-- -->
 
-\###Exercise 11
+### Exercise 11
 
 ``` r
 NConly <- dn_lq %>%
@@ -178,7 +175,7 @@ ggplot(NConly, mapping = aes(
 
 ![](lab-04_files/figure-gfm/exercise11-1.png)<!-- -->
 
-\###Exercise 12
+### Exercise 12
 
 ``` r
 TXonly <- dn_lq %>%
