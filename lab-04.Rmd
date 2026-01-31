@@ -99,6 +99,16 @@ dn %>%
 
 
 ### Exercise 10
+States with Denny's per 1000 square miles:
+```{r}
+dn <- dn %>%
+  mutate(locations_area = 'n' / 'area')
+```
+States with La Quinta's per 1000 square miles:
+```{r}
+
+```
+Mapping Denny's and La Quintas in the US:
 ```{r exercise10}
 dn <- dn %>%
   mutate(establishment = "Denny's")
@@ -111,7 +121,11 @@ ggplot(dn_lq, mapping = aes(
   y = latitude,
   color = establishment
 )) +
-  geom_point()
+  geom_point(alpha = .85) +
+  labs(title = "Denny's and La Quinta Locations Across the United States",
+       x = "Longitude",
+       y = "Latitude",
+       color = "Establishment")
 ```
 
 ### Exercise 11
@@ -123,10 +137,15 @@ ggplot(NConly, mapping = aes(
   y = latitude,
   color = establishment
 )) +
-  geom_point()
+  geom_point() +
+    labs(title = "Denny's and La Quinta Locations In North Carolina",
+       x = "Longitude",
+       y = "Latitude",
+       color = "Establishment")
 ```
 
 ### Exercise 12
+The joke most certainly holds for Texas, but only sort of for NC. 
 ```{r exercise12}
 TXonly <- dn_lq %>%
   filter(state == "TX")
@@ -135,6 +154,10 @@ ggplot(TXonly, mapping = aes(
   y = latitude,
   color = establishment
 )) +
-  geom_point()
-#The joke most certainly holds for texas, but only sort of for NC 
+  geom_point(alpha = .75) +
+    labs(title = "Denny's and La Quinta Locations In Texas",
+       x = "Longitude",
+       y = "Latitude",
+       color = "Establishment")
+
 ```

@@ -155,7 +155,11 @@ ggplot(dn_lq, mapping = aes(
   y = latitude,
   color = establishment
 )) +
-  geom_point()
+  geom_point(alpha = .85) +
+  labs(title = "Denny's and La Quinta Locations Across the United States",
+       x = "Longitude",
+       y = "Latitude",
+       color = "Establishment")
 ```
 
 ![](lab-04_files/figure-gfm/exercise10-1.png)<!-- -->
@@ -170,12 +174,18 @@ ggplot(NConly, mapping = aes(
   y = latitude,
   color = establishment
 )) +
-  geom_point()
+  geom_point() +
+    labs(title = "Denny's and La Quinta Locations In North Carolina",
+       x = "Longitude",
+       y = "Latitude",
+       color = "Establishment")
 ```
 
 ![](lab-04_files/figure-gfm/exercise11-1.png)<!-- -->
 
 ### Exercise 12
+
+The joke most certainly holds for Texas, but only sort of for NC.
 
 ``` r
 TXonly <- dn_lq %>%
@@ -185,11 +195,11 @@ ggplot(TXonly, mapping = aes(
   y = latitude,
   color = establishment
 )) +
-  geom_point()
+  geom_point(alpha = .75) +
+    labs(title = "Denny's and La Quinta Locations In Texas",
+       x = "Longitude",
+       y = "Latitude",
+       color = "Establishment")
 ```
 
 ![](lab-04_files/figure-gfm/exercise12-1.png)<!-- -->
-
-``` r
-#The joke most certainly holds for texas, but only sort of for NC 
-```
