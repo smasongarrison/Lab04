@@ -17,10 +17,10 @@ states <- read_csv("data/states.csv")
 ```
 
 ### Exercise 1
-Each row represents a Denny's location. The variables are the address, city, state, zip code, longitude, and lattitude. There are `r nrow(dennys)` Denny's and `r ncol(dennys)` variables. 
+Each row represents a Denny's location. The variables are the address, city, state, zip code, longitude, and lattitude. There are  variables. 
 
 ### Exercise 2
-The La Quinta dataset is `r nrow(laquinta)` by `r ncol(laquinta)`. The rows represent the motel, and the variables are the address, city, state, zip, longitude, and latitude. 
+The La Quinta dataset is The rows represent the motel, and the variables are the address, city, state, zip, longitude, and latitude. 
 
 ### Exercise 3
 There are dennys outside of the US - Canada, Puerto Rico, UK. Same thing with La Quinta - they are in Canada, Mexico, Turkey, etc.
